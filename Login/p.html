@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrador Servicios</title>
+  <link rel="stylesheet" href="/Login/p.css">
+  <!-- Iconos -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Logo_D%26A.png" alt="logo">
+        <h2>D&A Systems Group</h2>
+      </div>
+
+      <ul class="menu">
+        <li><a href="#"><i class="fa fa-user"></i> Mi perfil</a></li>
+        <li><a href="#"><i class="fa fa-cog"></i> Configuración</a></li>
+        <li class="active"><a href="#"><i class="fa fa-briefcase"></i> Servicios</a></li>
+        <li><a href="#"><i class="fa fa-list"></i> Opciones</a></li>
+        <li><a href="#"><i class="fa fa-users"></i> Gestión de usuarios</a></li>
+        <li><a href="#"><i class="fa fa-ticket"></i> Soporte ticket</a></li>
+      </ul>
+
+      <div class="logout">
+        <a href="#"><i class="fa fa-sign-out-alt"></i> Cerrar Sesión</a>
+      </div>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+      <h1>Administrador Servicios</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Servicio</th>
+            <th>Cantidad</th>
+            <th>Promoción</th>
+            <th>Referencia</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Seguridad Informática</td>
+            <td>stock: 5</td>
+            <td>NO</td>
+            <td>ID:1</td>
+            <td>
+              <button class="edit"><i class="fa fa-pen"></i></button>
+              <button class="delete"><i class="fa fa-trash"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td>Data Analytics</td>
+            <td>stock: 20</td>
+            <td>SÍ</td>
+            <td>ID:2</td>
+            <td>
+              <button class="edit"><i class="fa fa-pen"></i></button>
+              <button class="delete"><i class="fa fa-trash"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td>Automatización</td>
+            <td>stock: 15</td>
+            <td>NO</td>
+            <td>ID:3</td>
+            <td>
+              <button class="edit"><i class="fa fa-pen"></i></button>
+              <button class="delete"><i class="fa fa-trash"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td>Soporte 24/7</td>
+            <td>stock: 10</td>
+            <td>SÍ</td>
+            <td>ID:4</td>
+            <td>
+              <button class="edit"><i class="fa fa-pen"></i></button>
+              <button class="delete"><i class="fa fa-trash"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</body>
+</html>
