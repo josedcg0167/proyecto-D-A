@@ -49,20 +49,22 @@ input {
   border: 1px solid #ccc;
 }
 
-/* Botón */
-button {
-  width: 100%;
-  padding: 12px;
-  background: #222;
+.btn-login {
+  display: inline-block;
+  background-color: #1e1e1e; /* negro suave */
   color: white;
+  padding: 15px 40px;
   border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-bottom: 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 13px;
+  font-family: sans-serif;
+  transition: background-color 0.3s;
 }
 
-button:hover {
-  background: #333;
+.btn-login:hover {
+  background-color: #333333; /* un poco más claro al pasar el mouse */
 }
 
 /* Links */
