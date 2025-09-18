@@ -1,139 +1,199 @@
-/* General */
-body {
+/* Reset */
+* {
   margin: 0;
-  font-family: "Arial", sans-serif;
-  background: #f8f8fc;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f5f6fa;
   color: #333;
 }
 
-/* Layout */
-.container {
+.dashboard-container {
   display: flex;
+  min-height: 100vh;
 }
 
 /* Sidebar */
 .sidebar {
-  width: 250px;
-  background: linear-gradient(180deg, #4b2ebf, #8a66d4);
-  color: white;
-  min-height: 100vh;
-  padding: 20px 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  width: 240px;
+  background: #fff;
+  padding: 20px;
+  border-right: 1px solid #eee;
 }
 
-.logo {
+.sidebar .logo {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-.logo img {
-  width: 60px;
+.sidebar .logo img {
+  width: 70px;
   margin-bottom: 10px;
 }
 
-.logo h2 {
-  font-size: 16px;
-  font-weight: 500;
+.sidebar h2 {
+  font-size: 18px;
+  color: #6c2c91;
 }
 
-/* Menu */
 .menu {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .menu li {
-  margin: 10px 0;
-}
-
-.menu li a {
-  text-decoration: none;
-  color: white;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  padding: 10px;
-  border-radius: 6px;
-  transition: background 0.3s;
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #444;
 }
 
-.menu li a i {
-  margin-right: 10px;
+.menu li:hover,
+.menu li.active {
+  background: #6c2c91;
+  color: #fff;
 }
 
-.menu li a:hover, .menu li.active a {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Logout */
-.logout {
-  margin-top: 20px;
-}
-
-.logout a {
-  color: #ffb3b3;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-}
-
-.logout a i {
-  margin-right: 8px;
-}
-
-/* Contenido */
+/* Main */
 .main-content {
   flex: 1;
-  padding: 40px;
+  padding: 25px;
 }
 
-.main-content h1 {
-  color: #4b2ebf;
-  margin-bottom: 20px;
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.navbar h1 {
+  font-size: 24px;
+}
+
+.navbar h1 span {
+  color: #6c2c91;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 40px;
+  border-radius: 50%;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.card .number {
+  font-size: 26px;
+  font-weight: 600;
+  color: #6c2c91;
 }
 
 /* Tabla */
+.table-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.table-section h2 {
+  margin-bottom: 15px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 thead {
-  background: #f0f0f5;
+  background: #f1f1f1;
 }
 
-th, td {
-  padding: 12px 15px;
+thead th {
   text-align: left;
+  padding: 12px;
+  font-weight: 600;
 }
 
-tbody tr:nth-child(even) {
+tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
   background: #fafafa;
 }
 
-/* Botones */
-button {
+.edit-btn {
+  background: #6c2c91;
+  color: #fff;
   border: none;
-  background: none;
+  padding: 6px 12px;
+  border-radius: 6px;
   cursor: pointer;
-  margin: 0 5px;
-  font-size: 16px;
+  transition: 0.3s;
 }
 
-button.edit {
-  color: #4b2ebf;
+.edit-btn:hover {
+  background: #532072;
 }
 
-button.delete {
-  color: #e74c3c;
+/* Paginación */
+.pagination {
+  margin-top: 25px;
+  text-align: center;
 }
 
-button:hover {
-  opacity: 0.7;
+.pagination a,
+.pagination span {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 0 4px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+  border: 1px solid #ddd;
+  transition: all 0.3s;
+}
+
+.pagination a:hover,
+.pagination a.active {
+  background: #6c2c91;
+  color: #fff;
+  border-color: #6c2c91;
 }

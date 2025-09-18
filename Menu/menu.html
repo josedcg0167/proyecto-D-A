@@ -4,90 +4,119 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Administrador Servicios</title>
-  <link rel="stylesheet" href="Menu\menu.css">
+  <link rel="stylesheet" href="menu.css">
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <!-- Iconos -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div class="container">
+  <div class="dashboard-container">
+    
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Logo_D%26A.png" alt="logo">
-        <h2>D&A Systems Group</h2>
+        <img src="logo.png" alt="Logo">
+        <h2>D&A Systems</h2>
       </div>
-
       <ul class="menu">
-        <li><a href="#"><i class="fa fa-user"></i> Mi perfil</a></li>
-        <li><a href="#"><i class="fa fa-cog"></i> Configuración</a></li>
-        <li class="active"><a href="#"><i class="fa fa-briefcase"></i> Servicios</a></li>
-        <li><a href="#"><i class="fa fa-list"></i> Opciones</a></li>
-        <li><a href="#"><i class="fa fa-users"></i> Gestión de usuarios</a></li>
-        <li><a href="#"><i class="fa fa-ticket"></i> Soporte ticket</a></li>
+        <li><i class="fa fa-user"></i> Mi perfil</li>
+        <li><i class="fa fa-cog"></i> Configuración</li>
+        <li class="active"><i class="fa fa-briefcase"></i> Servicios</li>
+        <li><i class="fa fa-users"></i> Gestión de usuarios</li>
+        <li><i class="fa fa-headset"></i> Soporte tickets</li>
+        <li><i class="fa fa-sign-out-alt"></i> Cerrar Sesión</li>
       </ul>
-
-      <div class="logout">
-        <a href="#"><i class="fa fa-sign-out-alt"></i> Cerrar Sesión</a>
-      </div>
     </aside>
 
-    <!-- Contenido principal -->
+    <!-- Main -->
     <main class="main-content">
-      <h1>Administrador Servicios</h1>
+      <!-- Navbar -->
+      <nav class="navbar">
+        <h1>Administrador <span>Servicios</span></h1>
+        <div class="user-info">
+          <span>Hola, Administrador</span>
+          <img src="user.png" alt="user" class="user-avatar">
+        </div>
+      </nav>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Servicio</th>
-            <th>Cantidad</th>
-            <th>Promoción</th>
-            <th>Referencia</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Seguridad Informática</td>
-            <td>stock: 5</td>
-            <td>NO</td>
-            <td>ID:1</td>
-            <td>
-              <button class="edit"><i class="fa fa-pen"></i></button>
-              <button class="delete"><i class="fa fa-trash"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <td>Data Analytics</td>
-            <td>stock: 20</td>
-            <td>SÍ</td>
-            <td>ID:2</td>
-            <td>
-              <button class="edit"><i class="fa fa-pen"></i></button>
-              <button class="delete"><i class="fa fa-trash"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <td>Automatización</td>
-            <td>stock: 15</td>
-            <td>NO</td>
-            <td>ID:3</td>
-            <td>
-              <button class="edit"><i class="fa fa-pen"></i></button>
-              <button class="delete"><i class="fa fa-trash"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <td>Soporte 24/7</td>
-            <td>stock: 10</td>
-            <td>SÍ</td>
-            <td>ID:4</td>
-            <td>
-              <button class="edit"><i class="fa fa-pen"></i></button>
-              <button class="delete"><i class="fa fa-trash"></i></button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- Cards resumen -->
+      <section class="cards">
+        <div class="card">
+          <h3>Total Servicios</h3>
+          <p class="number">4</p>
+        </div>
+        <div class="card">
+          <h3>En Promoción</h3>
+          <p class="number">2</p>
+        </div>
+        <div class="card">
+          <h3>Stock Total</h3>
+          <p class="number">50</p>
+        </div>
+        <div class="card">
+          <h3>Referencias</h3>
+          <p class="number">4</p>
+        </div>
+      </section>
+
+      <!-- Tabla -->
+      <section class="table-section">
+        <h2>Listado de Servicios</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Servicio</th>
+              <th>Cantidad</th>
+              <th>Promoción</th>
+              <th>Referencia</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Seguridad informática</td>
+              <td>stock 8</td>
+              <td>82</td>
+              <td>90.1</td>
+              <td><button class="edit-btn"><i class="fa fa-pen"></i></button></td>
+            </tr>
+            <tr>
+              <td>Data analytics</td>
+              <td>stock 20</td>
+              <td>52</td>
+              <td>33.2</td>
+              <td><button class="edit-btn"><i class="fa fa-pen"></i></button></td>
+            </tr>
+            <tr>
+              <td>Automatización</td>
+              <td>stock 12</td>
+              <td>60</td>
+              <td>99.4</td>
+              <td><button class="edit-btn"><i class="fa fa-pen"></i></button></td>
+            </tr>
+            <tr>
+              <td>Soporte 24/7</td>
+              <td>stock 10</td>
+              <td>45</td>
+              <td>21.9</td>
+              <td><button class="edit-btn"><i class="fa fa-pen"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Paginación -->
+      <div class="pagination">
+        <a href="#">«</a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <span>…</span>
+        <a href="#">67</a>
+        <a href="#">68</a>
+        <a href="#">»</a>
+      </div>
     </main>
   </div>
 </body>
