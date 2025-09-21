@@ -1,4 +1,5 @@
 /* Estilos generales */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -131,18 +132,23 @@ footer {
 .footer-logo img {
   height: 40px;          /* ajusta tamaño del logo */
   width: auto;
+
 }
 
 .footer-contact p {
   margin: 5px 0;
+  
 }
 .footer-logo {
   display: flex;
   align-items: center;   /* centra verticalmente logo y texto */
-  gap: 10px;  } 
+  gap: 10px;
+  
+  }
   
   .footer-logo p {
   margin: 0;
   font-weight: bold;
   font-size: 18px;       /* puedes ajustar el tamaño */
+  text-decoration: none
 }
