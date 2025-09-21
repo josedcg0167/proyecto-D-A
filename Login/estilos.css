@@ -21,9 +21,9 @@ body {
   background: #fff;
   padding: 30px 40px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
   text-align: center;
-  width: 300px;
+  width: 320px;
 }
 
 /* Avatar */
@@ -47,25 +47,59 @@ input {
   margin-bottom: 15px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
 }
 
+/* Wrapping para password (centra el ojo verticalmente) */
+.password-wrapper {
+  position: relative;
+}
+
+/* deja espacio a la derecha para el botón */
+.password-wrapper input {
+  padding-right: 44px; /* espacio para el icono */
+}
+
+/* botón ojo (absoluto y perfectamente centrado verticalmente) */
+.toggle-visibility {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  height: 28px;
+  width: 28px;
+  line-height: 0;
+  color: #444;
+}
+.toggle-visibility:focus { outline: 2px solid rgba(0,0,0,0.08); border-radius: 4px; }
+
+/* Asegura que el svg quede centrado y no afecte line-height */
+.toggle-visibility svg { display: block; width: 18px; height: 18px; }
+
+/* Botón login */
 .btn-login {
   display: inline-block;
-  background-color: #1e1e1e; /* negro suave */
+  background-color: #1e1e1e;
   color: white;
-  padding: 15px 40px;
+  padding: 12px 30px;
   border: none;
   border-radius: 10px;
   text-decoration: none;
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
   font-family: sans-serif;
-  transition: background-color 0.3s;
+  cursor: pointer;
+  margin-top: 6px;
 }
-
-.btn-login:hover {
-  background-color: #333333; /* un poco más claro al pasar el mouse */
-}
+.btn-login:hover { background-color: #333333; }
 
 /* Links */
 .link {
@@ -81,4 +115,170 @@ input {
   margin-top: 12px;
   text-decoration: none;
   font-weight: 500;
+}
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-container input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px; /* espacio para el botón del ojo */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.password-container button {
+  position: absolute;
+  top: 35%;              /* centrado vertical */
+  right: 5px;           /* espacio desde el borde derecho */
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding: 0;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+
+
+/* cambio de contraseña */
+:root {
+  --bg:#e9e6ef;
+  --card:#fff;
+  --muted:#666;
+  --accent:#111;
+  --success:#1a8a3f;
+  --danger:#c0392b;
+}
+
+* { box-sizing:border-box }
+html,body { height:100% }
+
+body {
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#ece9f3 0%, #f5f4f8 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.container { width:100%; max-width:420px }
+
+.card {
+  background:var(--card);
+  border-radius:10px;
+  padding:28px;
+  box-shadow: 0 6px 14px rgba(20,20,35,0.08);
+  border:1px solid rgba(0,0,0,0.04);
+}
+
+.avatar {
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  background:linear-gradient(180deg,#f2f2f2,#e9e9e9);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 12px;
+  font-size:28px;
+}
+
+.title {
+  text-align:center;
+  margin:0 0 18px;
+  color:var(--accent);
+}
+
+.field { display:block; margin-bottom:14px }
+.label-text { display:block; font-size:13px; color:var(--muted); margin-bottom:6px }
+
+input[type="text"],
+input[type="password"] {
+  width:100%;
+  padding:10px 12px;
+  border-radius:6px;
+  border:1px solid #dedede;
+  font-size:14px;
+  outline:none;
+  transition:box-shadow .12s, border-color .12s;
+}
+
+input[readonly] { background:#fafafa; color:#333 }
+
+input:focus {
+  border-color:#bdb6ff;
+  box-shadow:0 2px 8px rgba(118,96,255,0.08);
+}
+
+/* password wrapper */
+.password-wrapper { position:relative }
+.toggle-visibility {
+  position:absolute;
+  right:6px;
+  top:40%;
+  transform:translateY(-50%);
+  border:0;
+  background:transparent;
+  padding:6px;
+  border-radius:6px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.toggle-visibility:focus { outline:2px solid rgba(0,0,0,0.06) }
+
+/* acciones */
+.actions { display:flex; justify-content:center; margin-top:6px }
+.btn {
+  background:#111;
+  color:#fff;
+  border:0;
+  padding:10px 24px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  box-shadow:0 6px 12px rgba(0,0,0,0.08);
+}
+.btn:active { transform:translateY(1px) }
+
+.message { margin-top:12px; text-align:center; font-size:14px }
+
+/* mensajes de estado */
+.message.success { color:var(--success) }
+.message.error { color:var(--danger) }
+
+/* link volver (igual al "regresar" del login) */
+.link.regresar {
+  display:block;
+  margin-top:14px;
+  text-align:center;
+  font-size:15px;
+  font-weight:600;
+  color:var(--accent);
+  text-decoration:none;
+}
+.link.regresar:hover {
+  text-decoration:underline;
 }
