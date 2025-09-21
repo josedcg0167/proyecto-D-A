@@ -1,33 +1,73 @@
-// ----- Mostrar / Ocultar contraseña -----
-const togglePassword = document.getElementById("togglePassword");
-const passwordInput = document.getElementById("password");
-const eyeOpen = document.getElementById("eyeOpen");
-const eyeClosed = document.getElementById("eyeClosed");
+// Ejecutar cuando el DOM cargue
+document.addEventListener("DOMContentLoaded", () => {
+  // ----- Mostrar / Ocultar contraseña (funciona para todos los inputs) -----
+const toggleButtons = document.querySelectorAll(".toggle-visibility");
 
-togglePassword.addEventListener("click", () => {
-if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-    eyeOpen.classList.add("hidden");
-    eyeClosed.classList.remove("hidden");
-} else {
-    passwordInput.type = "password";
-    eyeOpen.classList.remove("hidden");
-    eyeClosed.classList.add("hidden");
-}
+toggleButtons.forEach(button => {
+    button.addEventListener("click", () => {
+    const targetId = button.getAttribute("data-target");
+    const input = document.getElementById(targetId);
+
+      // Busca si hay iconos de ojo abierto/cerrado dentro del botón
+    const eyeOpen = button.querySelector("#eyeOpen");
+    const eyeClosed = button.querySelector("#eyeClosed");
+
+    if (input.type === "password") {
+        input.type = "text";
+        if (eyeOpen && eyeClosed) {
+        eyeOpen.classList.add("hidden");
+        eyeClosed.classList.remove("hidden");
+        }
+    } else {
+        input.type = "password";
+        if (eyeOpen && eyeClosed) {
+        eyeOpen.classList.remove("hidden");
+        eyeClosed.classList.add("hidden");
+        }
+    }
+    });
 });
 
-// ----- Redirigir solo si user=admin y pass=1234 -----
-const form = document.getElementById("loginForm");
+  // ----- Login -----
+const loginForm = document.getElementById("loginForm");
+if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-form.addEventListener("submit", function(e) {
-  e.preventDefault(); // evita recarga
+    const usuario = document.getElementById("usuario").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-const usuario = document.getElementById("usuario").value.trim();
-const password = document.getElementById("password").value.trim();
+    if (usuario === "admin" && password === "100%S3gur0s*") {
+        window.location.href = "/Menu/menu_admin.html";
+    } else {
+        alert("Usuario o contraseña incorrectos");
+    }
+    });
+}
 
-if (usuario === "admin" && password === "1234") {
-    window.location.href = "/Menu/menu_admin.html";
-} else {
-    alert("Usuario o contraseña incorrectos");
+  // ----- Cambio de contraseña -----
+const changePasswordForm = document.getElementById("changePasswordForm");
+if (changePasswordForm) {
+    changePasswordForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const pass1 = document.getElementById("password").value.trim();
+    const pass2 = document.getElementById("password_confirm").value.trim();
+    const message = document.getElementById("message");
+
+    if (pass1.length < 6) {
+        message.textContent = "La contraseña debe tener al menos 6 caracteres.";
+        message.className = "message error";
+    } else if (pass1 !== pass2) {
+        message.textContent = "Las contraseñas no coinciden.";
+        message.className = "message error";
+    } else {
+        message.textContent = "Contraseña cambiada con éxito ✅";
+        message.className = "message success";
+
+        // Aquí puedes redirigir a login.html si quieres
+        // window.location.href = "login.html";
+    }
+    });
 }
 });

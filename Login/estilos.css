@@ -158,8 +158,9 @@ input {
 
 
 
-/*cambio de contraseña*/
-:root{
+
+/* cambio de contraseña */
+:root {
   --bg:#e9e6ef;
   --card:#fff;
   --muted:#666;
@@ -168,11 +169,12 @@ input {
   --danger:#c0392b;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
+* { box-sizing:border-box }
+html,body { height:100% }
+
+body {
   margin:0;
-  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   background: linear-gradient(180deg,#ece9f3 0%, #f5f4f8 100%);
   display:flex;
   align-items:center;
@@ -180,9 +182,9 @@ body{
   padding:24px;
 }
 
-.container{width:100%;max-width:420px}
+.container { width:100%; max-width:420px }
 
-.card{
+.card {
   background:var(--card);
   border-radius:10px;
   padding:28px;
@@ -190,20 +192,29 @@ body{
   border:1px solid rgba(0,0,0,0.04);
 }
 
-.avatar{
-  width:64px;height:64px;border-radius:50%;
+.avatar {
+  width:64px;
+  height:64px;
+  border-radius:50%;
   background:linear-gradient(180deg,#f2f2f2,#e9e9e9);
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 12px; font-size:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 12px;
+  font-size:28px;
 }
 
-.title{text-align:center;margin:0 0 18px;color:var(--accent)}
+.title {
+  text-align:center;
+  margin:0 0 18px;
+  color:var(--accent);
+}
 
-.field{display:block;margin-bottom:14px}
-.label-text{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+.field { display:block; margin-bottom:14px }
+.label-text { display:block; font-size:13px; color:var(--muted); margin-bottom:6px }
 
 input[type="text"],
-input[type="password"]{
+input[type="password"] {
   width:100%;
   padding:10px 12px;
   border-radius:6px;
@@ -212,37 +223,62 @@ input[type="password"]{
   outline:none;
   transition:box-shadow .12s, border-color .12s;
 }
-input[readonly]{background:#fafafa;color:#333}
 
-input:focus{
+input[readonly] { background:#fafafa; color:#333 }
+
+input:focus {
   border-color:#bdb6ff;
   box-shadow:0 2px 8px rgba(118,96,255,0.08);
 }
 
 /* password wrapper */
-.password-wrapper{
-  position:relative;
-}
-.toggle-visibility{
+.password-wrapper { position:relative }
+.toggle-visibility {
   position:absolute;
-  right:6px;top:50%;
+  right:6px;
+  top:40%;
   transform:translateY(-50%);
-  border:0;background:transparent;padding:6px;border-radius:6px;
+  border:0;
+  background:transparent;
+  padding:6px;
+  border-radius:6px;
   cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-.toggle-visibility:focus{outline:2px solid rgba(0,0,0,0.06)}
+.toggle-visibility:focus { outline:2px solid rgba(0,0,0,0.06) }
 
 /* acciones */
-.actions{display:flex;justify-content:center;margin-top:6px}
-.btn{
-  background:#111;color:#fff;border:0;padding:10px 24px;border-radius:8px;cursor:pointer;
+.actions { display:flex; justify-content:center; margin-top:6px }
+.btn {
+  background:#111;
+  color:#fff;
+  border:0;
+  padding:10px 24px;
+  border-radius:8px;
+  cursor:pointer;
   font-weight:600;
   box-shadow:0 6px 12px rgba(0,0,0,0.08);
 }
-.btn:active{transform:translateY(1px)}
-.message{margin-top:12px;text-align:center;font-size:14px}
+.btn:active { transform:translateY(1px) }
+
+.message { margin-top:12px; text-align:center; font-size:14px }
 
 /* mensajes de estado */
-.message.success{color:var(--success)}
-.message.error{color:var(--danger)}
+.message.success { color:var(--success) }
+.message.error { color:var(--danger) }
+
+/* link volver (igual al "regresar" del login) */
+.link.regresar {
+  display:block;
+  margin-top:14px;
+  text-align:center;
+  font-size:15px;
+  font-weight:600;
+  color:var(--accent);
+  text-decoration:none;
+}
+.link.regresar:hover {
+  text-decoration:underline;
+}
