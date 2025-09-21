@@ -41,7 +41,16 @@ body {
 
 .menu {
   list-style: none;
+
 }
+
+.menu li a {
+  text-decoration: none;
+  color: inherit;      /* Usa el mismo color que el li */
+  display: flex;       /* Para alinear ícono y texto */
+  align-items: center;
+  gap: 8px;            /* Espacio entre icono y texto */
+  width: 100%; }
 
 .menu li {
   padding: 12px;

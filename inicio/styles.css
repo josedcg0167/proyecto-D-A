@@ -93,6 +93,7 @@ body {
   margin-top: 15px;
   transition: all 0.1s ease-in-out; /* animación suave */
   box-shadow: 0 4px 0 #333; /* sombra para dar efecto de relieve */
+  text-decoration: none; /* para enlaces */
 }
 
 .btn:active {
