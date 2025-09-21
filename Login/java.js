@@ -37,7 +37,7 @@ if (loginForm) {
     const usuario = document.getElementById("usuario").value.trim();
     const password = document.getElementById("password").value.trim();
 
-    if (usuario === "admin" && password === "100%S3gur0s*") {
+    if (usuario === "admin" && password === "123456") {
         window.location.href = "/Menu/menu_admin.html";
     } else {
         alert("Usuario o contraseña incorrectos");
