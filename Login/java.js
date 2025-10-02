@@ -28,7 +28,7 @@ toggleButtons.forEach(button => {
     });
 });
 
-  // ----- Login -----
+// ----- Login -----
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
@@ -37,12 +37,27 @@ if (loginForm) {
     const usuario = document.getElementById("usuario").value.trim();
     const password = document.getElementById("password").value.trim();
 
-    if (usuario === "admin" && password === "123456") {
-        window.location.href = "/Menu/menu_admin.html";
-    } else {
-        alert("Usuario o contraseña incorrectos");
-    }
+    fetch("/Login/usuarios.json")
+        .then(response => response.json())
+        .then(usuarios => {
+            const user = usuarios.find(u => u.usuario === usuario && u.password === password);
+
+        if (user) {
+            alert(`✅ Bienvenido ${user.usuario} (${user.rol})`);
+            if (user.rol === "admin") {
+                window.location.href = "/Menu/menu_admin.html";
+        } else {
+            window.location.href = "/inicio/index.html";
+        }
+        } else {
+        alert("❌ Usuario o contraseña incorrectos");
+        }
+    })
+    .catch(err => {
+        console.error("Error cargando usuarios.json", err);
+        alert("Error al cargar la base de datos de usuarios");
     });
+});
 }
 
   // ----- Cambio de contraseña -----
