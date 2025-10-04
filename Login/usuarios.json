@@ -15,12 +15,6 @@
     "id": 3,
     "usuario": "David",
     "password": "datos25",
-    "rol": "usuario"
-  },
-  {
-    "id": 4,
-    "usuario": "Cliente1",
-    "password": "prueba1",
-    "rol": "usuario"
+    "rol": "admin"
   }
 ]

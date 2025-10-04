@@ -29,3 +29,37 @@ window.addEventListener('click', (e) => {
     modal.style.display = 'none';
   }
 });
+
+// ================== Cargar servicios extra desde JSON ==================
+fetch('/Servicios/data/servicios.json')
+  .then(response => response.json())
+  .then(servicios => {
+    const grid = document.querySelector('.servicios-grid');
+
+    servicios.forEach(servicio => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      card.dataset.title = servicio.nombre;
+      card.dataset.price = servicio.precio;
+      card.dataset.description = servicio.descripcion;
+      card.dataset.img = servicio.imagen;
+
+      card.innerHTML = `
+        <img src="${servicio.imagen}" alt="${servicio.nombre}">
+        <h3>${servicio.nombre}</h3>
+        <p>${servicio.precio}</p>
+      `;
+
+      // mismo evento que las tarjetas fijas
+      card.addEventListener('click', () => {
+        modalTitle.textContent = servicio.nombre;
+        modalPrice.textContent = servicio.precio;
+        modalDescription.textContent = servicio.descripcion;
+        modalImg.src = servicio.imagen;
+        modal.style.display = 'block';
+      });
+
+      grid.appendChild(card);
+    });
+  })
+  .catch(err => console.error("Error cargando servicios.json", err));

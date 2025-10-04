@@ -2,71 +2,79 @@
   {
     "id": 1,
     "nombre": "Seguridad informática",
-    "precio": 3500000,
+    "precio": "$3,500,000.00",
     "descripcion": "Protección integral contra amenazas digitales.",
-    "imagen": "/img/seguridad.jpg"
+    "imagen": "img/seguridad.jpg"
   },
   {
     "id": 2,
     "nombre": "Data analytics",
-    "precio": 4000000,
+    "precio": "$4,000,000.00",
     "descripcion": "Análisis avanzado de datos para la toma de decisiones.",
-    "imagen": "/img/data.jpg"
+    "imagen": "img/data-analytics.jpg"
   },
   {
     "id": 3,
     "nombre": "Automatización",
-    "precio": 5000000,
+    "precio": "$5,000,000.00",
     "descripcion": "Optimización de procesos con tecnología automatizada.",
-    "imagen": "/img/automatizacion.jpg"
+    "imagen": "img/automatizacion.jpg"
   },
   {
     "id": 4,
     "nombre": "Soporte 24/7",
-    "precio": 1200000,
+    "precio": "$1,200,000.00",
     "descripcion": "Asistencia técnica continua para tu empresa.",
-    "imagen": "/img/soporte.jpg"
+    "imagen": "img/soporte.jpg"
   },
   {
     "id": 5,
     "nombre": "Marketing digital",
-    "precio": 2500000,
+    "precio": "$2,500,000.00",
     "descripcion": "Estrategias digitales para mejorar tu alcance.",
-    "imagen": "/img/marketing.jpg"
+    "imagen": "img/marketing.jpg"
   },
   {
     "id": 6,
     "nombre": "Servicios en la nube",
-    "precio": 3000000,
+    "precio": "$3,000,000.00",
     "descripcion": "Infraestructura en la nube segura y escalable.",
-    "imagen": "/img/nube.jpg"
+    "imagen": "img/nube.jpg"
   },
   {
     "id": 7,
     "nombre": "Business Intelligence",
-    "precio": 4500000,
+    "precio": "$4,500,000.00",
     "descripcion": "Herramientas para la inteligencia de negocios.",
-    "imagen": "/img/inteligencia.jpg"
+    "imagen": "img/inteligencia.jpg"
   },
   {
     "id": 8,
     "nombre": "Capacitación tecnológica",
-    "precio": 800000,
+    "precio": "$800,000.00",
     "descripcion": "Formación en las últimas tecnologías.",
-    "imagen": "/img/capacitacion.jpg"
+    "imagen": "img/capacitacion.jpg"
   },
   {
     "id": 9,
     "nombre": "Administración de redes",
-    "precio": 2000000,
+    "precio": "$2,000,000.00",
     "descripcion": "Gestión completa de redes empresariales.",
-    "imagen": "/img/redes.jpg"
+    "imagen": "img/redes.jpg"
   },
   {
     "id": 10,
     "nombre": "Desarrollo páginas web",
-    "precio": 3800000,
+    "precio": "$3,800,000.00",
     "descripcion": "Diseño y desarrollo de páginas web profesionales.",
-    "imagen": "/img/desarrollo.jpg"
+    "imagen": "img/web.jpg"
+  },
+  {
+    "id": 11,
+    "nombre": "hola mundo",
+    "precio": "$15,800,000.00",
+    "descripcion": "Diseño y desarrollo de páginas web profesionales.",
+    "imagen": "img/web.jpg"
   }
 ]
+

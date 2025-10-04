@@ -47,7 +47,7 @@ if (loginForm) {
             if (user.rol === "admin") {
                 window.location.href = "/Menu/menu_admin.html";
         } else {
-            window.location.href = "/inicio/index.html";
+            window.location.href = "/servicios/index.html";
         }
         } else {
         alert("❌ Usuario o contraseña incorrectos");
