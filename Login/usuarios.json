@@ -1,10 +1,10 @@
 
 
 [
-    { "nombre": "José Carbono", "usuario": "jcarbono", "correo": "jcarbono@dyasystemsgroup.com.co", "contraseña": "123456" },
-    { "nombre": "Angie Gamba", "usuario": "akgamba", "correo": "akgamba@dyasystemsgroup.com.co", "contraseña": "software2025" },
-    { "nombre": "David Carbono", "usuario": "dcarbono", "correo": "dcarbono@dyasystemsgroup.com.co", "contraseña": "datos25" },
-    { "nombre": "Katerine Sarmiento", "usuario": "ksarmiento", "correo": "ksarmiento@dyasystemsgroup.com.co", "contraseña": "987654" },
+    { "id":1,"nombre": "José Carbono", "usuario": "jcarbono", "correo": "jcarbono@dyasystemsgroup.com.co", "contraseña": "123456", "rol": "admin" },
+    {"id":2, "nombre": "Angie Gamba", "usuario": "akgamba", "correo": "akgamba@dyasystemsgroup.com.co", "contraseña": "software2025","rol": "admin" },
+    {"id":3, "nombre": "David Carbono", "usuario": "dcarbono", "correo": "dcarbono@dyasystemsgroup.com.co", "contraseña": "datos25", "rol": "admin" },
+    { "id":4,"nombre": "Katerine Sarmiento", "usuario": "ksarmiento", "correo": "ksarmiento@dyasystemsgroup.com.co", "contraseña": "987654", "rol":"admin"},
 
 
   {
