@@ -6,9 +6,7 @@
 <title>Administrador Servicios</title>
 <link rel="stylesheet" href="menu.css">
 <link rel="icon" href="/img/logo.png">
-<!-- Fuente moderna -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<!-- Iconos -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -16,93 +14,109 @@
     
     <!-- Sidebar -->
     <aside class="sidebar">
-    <div class="logo">
-    <img src="/img/logo.png" alt="Logo">
-        <h2>D&A Systems group</h2>
-    </div>
-    <ul class="menu">
-        <li><a href="menu_admin.html"><i class="fa fa-user"></i> Mi perfil</a></li>
-        <li><i class="fa fa-cog"></i> Configuración</li>
-        <li><a href="/Menu/menu_servic.html"><i class="fa fa-briefcase"></i> Servicios</a></li>
-        <li><a href="/Menu/menu_user.html"><i class="fa fa-users"></i> Gestión de usuarios</a></li>
-        <li><i class="fa fa-headset"></i> Soporte tickets</li>
-        <li><a href="/Login/login.html">
-        <i class="fa fa-sign-out-alt"></i> Cerrar Sesión</a>
-        </li>
-    </ul>
+        <div class="logo">
+            <img src="/img/logo.png" alt="Logo">
+            <h2>D&A Systems group</h2>
+        </div>
+        <ul class="menu">
+            <li><a href="menu_admin.html"><i class="fa fa-user"></i> Mi perfil</a></li>
+            <li><i class="fa fa-cog"></i> Configuración</li>
+            <li><a href="/Menu/menu_servic.html"><i class="fa fa-briefcase"></i> Servicios</a></li>
+            <li><a href="/Menu/menu_user.html" class="active"><i class="fa fa-users"></i> Gestión de usuarios</a></li>
+            <li><i class="fa fa-headset"></i> Soporte tickets</li>
+            <li><a href="/Login/login.html"><i class="fa fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+        </ul>
     </aside>
 
     <!-- Main -->
     <main class="main-content">
-    <!-- Navbar -->
-    <nav class="navbar">
-        <h1> <span>Usuarios</span></h1>
-        <div class="user-info">
-        <span>Hola, Administrador</span>
-        <img src="/img/user.png" alt="user" class="user-avatar">
-        </div>
-    </nav>
+        <nav class="navbar">
+            <h1><span>Usuarios</span></h1>
+            <div class="user-info">
+                <span>Hola, Administrador</span>
+                <img src="/img/user.png" alt="user" class="user-avatar">
+            </div>
+        </nav>
 
+        <!-- Tabla -->
+        <section class="table-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Usuario</th>
+                        <th>Correo</th>
+                        <th>Contraseña</th>
+                    </tr>
+                </thead>
+                <tbody id="usuarios-body">
+                    <!-- Los usuarios se cargarán automáticamente aquí -->
+                </tbody>
+            </table>
+        </section>
 
-
-    <!-- Tabla -->
-    <section class="table-section">
-        
-        <table>
-        <thead>
-            <tr>
-            <th>Nombre</th>
-            <th>Usuario</th>
-            <th>Correo</th>
-            <th>Contraseña</th>
-            <th>Modificar</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td>jose carbono</td>
-            <td>jcarbono</td>
-            <td>jcarbono@dyasystemsgroup.com.co</td>
-            <td>**********</td>
-            <td><button class="edit-btn"><i class="fa fa-pen"></i></button></td>
-            </tr>
-            <tr>
-            <td>angie gamba</td>
-            <td>akgamba</td>
-            <td>akgamba@dyasystemsgroup.com.co</td>
-            <td>**********</td>
-            <td><button class="edit-btn"><i class="fa fa-pen"></i></button></td>
-            </tr>
-            <tr>
-            <td>david carbono</td>
-            <td>dcarbono</td>
-            <td>dcarbono@dyasystemsgroup.com.co</td>
-            <td>**********</td>
-            <td><button class="edit-btn"><i class="fa fa-pen"></i></button></td>
-            </tr>
-            <tr>
-            <td>katerine sarmiento</td>
-            <td>ksarmiento</td>
-            <td>ksarmiento@dyasystemsgroup.com.co</td>
-            <td>**********</td>
-            <td><button class="edit-btn"><i class="fa fa-pen"></i></button></td>
-            </tr>
-        </tbody>
-        </table>
-    </section>
-
-    <!-- Paginación -->
-    <div class="pagination">
-        <a href="#">«</a>
-        <a href="#" class="active">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <span>…</span>
-        <a href="#">67</a>
-        <a href="#">68</a>
-        <a href="#">»</a>
-    </div>
+        <!-- Paginación -->
+        <div class="pagination" id="pagination"></div>
     </main>
 </div>
+
+<script>
+const usuariosPorPagina = 5;
+let usuarios = [];
+let paginaActual = 1;
+
+async function cargarUsuarios() {
+    try {
+        const response = await fetch('/Login/usuarios.json');
+        usuarios = await response.json();
+        mostrarUsuarios();
+        generarPaginacion();
+    } catch (error) {
+        console.error('Error al cargar usuarios:', error);
+    }
+}
+
+function mostrarUsuarios() {
+    const tbody = document.getElementById('usuarios-body');
+    tbody.innerHTML = '';
+
+    const inicio = (paginaActual - 1) * usuariosPorPagina;
+    const fin = inicio + usuariosPorPagina;
+    const usuariosPagina = usuarios.slice(inicio, fin);
+
+    usuariosPagina.forEach(u => {
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+            <td>${u.nombre}</td>
+            <td>${u.usuario}</td>
+            <td>${u.correo}</td>
+            <td>${u.contraseña.replace(/./g, '*')}</td>
+        `;
+        tbody.appendChild(fila);
+    });
+}
+
+function generarPaginacion() {
+    const totalPaginas = Math.ceil(usuarios.length / usuariosPorPagina);
+    const pagContainer = document.getElementById('pagination');
+    pagContainer.innerHTML = '';
+
+    for (let i = 1; i <= totalPaginas; i++) {
+        const link = document.createElement('a');
+        link.href = "#";
+        link.textContent = i;
+        if (i === paginaActual) link.classList.add('active');
+        link.addEventListener('click', () => {
+            paginaActual = i;
+            mostrarUsuarios();
+            generarPaginacion();
+        });
+        pagContainer.appendChild(link);
+    }
+}
+
+cargarUsuarios();
+</script>
+
 </body>
 </html>

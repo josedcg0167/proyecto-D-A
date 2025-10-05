@@ -104,5 +104,92 @@
     </div>
     </main>
 </div>
+<script>
+  const filasPorPagina = 5; // Cantidad de servicios por página
+let paginaActual = 1;
+let servicios = [];
+
+  // Cargar los datos del JSON
+fetch("/Servicios/servicios.json")
+    .then(response => response.json())
+    .then(data => {
+    servicios = data;
+    mostrarPagina(paginaActual);
+    generarPaginacion();
+    })
+    .catch(error => {
+    console.error("Error al cargar los servicios:", error);
+    });
+
+  // Función para mostrar una página específica
+function mostrarPagina(numPagina) {
+    const tbody = document.querySelector("tbody");
+    tbody.innerHTML = "";
+
+    const inicio = (numPagina - 1) * filasPorPagina;
+    const fin = inicio + filasPorPagina;
+    const serviciosPagina = servicios.slice(inicio, fin);
+
+    serviciosPagina.forEach(servicio => {
+    const fila = document.createElement("tr");
+    fila.innerHTML = `
+        <td>${servicio.nombre}</td>
+        <td>Stock ${Math.floor(Math.random() * 20) + 1}</td>
+        <td>${(Math.random() * 100).toFixed(0)}</td>
+        <td>${(Math.random() * 100).toFixed(1)}</td>
+        <td><button class="edit-btn"><i class="fa fa-pen"></i></button></td>
+    `;
+    tbody.appendChild(fila);
+    });
+}
+
+  // Función para generar los botones de paginación
+function generarPaginacion() {
+    const totalPaginas = Math.ceil(servicios.length / filasPorPagina);
+    const paginacion = document.querySelector(".pagination");
+    paginacion.innerHTML = "";
+
+    // Botón anterior
+    const prev = document.createElement("a");
+    prev.href = "#";
+    prev.textContent = "«";
+    prev.addEventListener("click", () => {
+    if (paginaActual > 1) {
+        paginaActual--;
+        mostrarPagina(paginaActual);
+        generarPaginacion();
+    }
+    });
+    paginacion.appendChild(prev);
+
+    // Botones de número
+    for (let i = 1; i <= totalPaginas; i++) {
+    const btn = document.createElement("a");
+    btn.href = "#";
+    btn.textContent = i;
+    if (i === paginaActual) btn.classList.add("active");
+    btn.addEventListener("click", () => {
+        paginaActual = i;
+        mostrarPagina(paginaActual);
+        generarPaginacion();
+    });
+    paginacion.appendChild(btn);
+    }
+
+    // Botón siguiente
+    const next = document.createElement("a");
+    next.href = "#";
+    next.textContent = "»";
+    next.addEventListener("click", () => {
+    if (paginaActual < totalPaginas) {
+        paginaActual++;
+        mostrarPagina(paginaActual);
+        generarPaginacion();
+    }
+    });
+    paginacion.appendChild(next);
+}
+</script>
+
 </body>
 </html>
